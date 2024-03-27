@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="certificate_1Approval" width="1280" height="720" titletext="New Form" onload="certificate_1Approval_onload">
+    <Layouts>
+      <Layout height="720" width="1280">
+        <Static id="Static00" taborder="0" text="  ◼ 증명서 승인 관리" left="115.00" top="45" width="230" height="65" textAlign="left" font="bold 26px/normal &quot;휴먼편지체&quot;" onclick="Static00_onclick"/>
+        <Button id="inquiryBtn00" taborder="1" text="승인" left="637.00" top="590" height="40" width="106" tabstop="false" background="#6092ff" font="12px/normal &quot;나눔고딕 ExtraBold&quot;" borderRadius="5px" color="white" onclick="inquiryBtn00_onclick"/>
+        <Button id="inquiryBtn01" taborder="2" text="반려" left="763.00" top="590" height="40" width="106" tabstop="false" background="#6092ff" font="12px/normal &quot;나눔고딕 ExtraBold&quot;" borderRadius="5px" color="white" onclick="inquiryBtn01_onclick"/>
+        <Button id="inquiryBtn02" taborder="3" text="승인취소" left="889.00" top="590" height="40" width="106" tabstop="false" background="#6092ff" font="12px/normal &quot;나눔고딕 ExtraBold&quot;" borderRadius="5px" color="white" onclick="inquiryBtn02_onclick"/>
+        <Button id="inquiryBtn03" taborder="4" text="확정" left="1015.00" top="590" height="40" width="106" tabstop="false" background="#6092ff" font="12px/normal &quot;나눔고딕 ExtraBold&quot;" borderRadius="5px" color="white" onclick="inquiryBtn03_onclick"/>
+        <Div id="Div00" taborder="5" text="Div00" left="100.00" top="95" width="1073" height="475">
+          <Layouts>
+            <Layout>
+              <Calendar id="Calendar00" taborder="0" left="35.00" top="95" width="174" height="41"/>
+              <Calendar id="Calendar00_00" taborder="1" left="256.00" top="95" width="174" height="41"/>
+              <Grid id="Grid00" taborder="2" left="33.00" top="150" width="987" height="318" binddataset="ds_documents_list" oncellclick="Div00_Grid00_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="48" band="left"/>
+                      <Column size="129"/>
+                      <Column size="129"/>
+                      <Column size="129"/>
+                      <Column size="129"/>
+                      <Column size="129"/>
+                      <Column size="165"/>
+                      <Column size="129"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell/>
+                      <Cell col="1" text="사원명"/>
+                      <Cell col="2" text="증빙구분"/>
+                      <Cell col="3" text="신청일"/>
+                      <Cell col="4" text="직급"/>
+                      <Cell col="5" text="부서"/>
+                      <Cell col="6" text="사유"/>
+                      <Cell col="7" text="승인여부"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:STATUS"/>
+                      <Cell col="1" text="bind:EMP_NAME"/>
+                      <Cell col="2" text="bind:PROOF_TYPE_NAME"/>
+                      <Cell col="3" text="bind:START_DATE"/>
+                      <Cell col="4" text="bind:POSITION"/>
+                      <Cell col="5" text="bind:DEPT"/>
+                      <Cell col="6" text="bind:CAUSE"/>
+                      <Cell col="7" text="bind:APPLOVAL_STATUS"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static00" taborder="3" text="신청일자" left="40.00" top="49" width="150" bottom="376" onclick="Div00_Static00_onclick" font="bold 14px/normal &quot;맑은 고딕&quot;"/>
+              <Button id="inquiryBtn" taborder="4" text="조회" left="467.00" top="95" height="41" width="110" tabstop="false" background="#6092ff" font="12px/normal &quot;나눔고딕 ExtraBold&quot;" borderRadius="5px" color="white" onclick="Div00_inquiryBtn_onclick"/>
+              <Static id="Static01" taborder="5" text="~" left="215" top="83" width="36" height="50" onclick="Div00_Static01_onclick" color="black" textAlign="center" font="bold 24px/normal &quot;휴먼둥근헤드라인&quot;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_documents_list">
+        <ColumnInfo>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="PROOF_TYPE_NAME" type="STRING" size="256"/>
+          <Column id="START_DATE" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="DEPT" type="STRING" size="256"/>
+          <Column id="CAUSE" type="STRING" size="256"/>
+          <Column id="APPLOVAL_STATUS" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="PROOF_TYPE_CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[include "Lib::commonOpen.xjs";
+include "Lib::commDate.xjs";
+include "Lib::commString.xjs";
+
+
+var nexa = nexacro.getApplication();
+
+//로딩시
+this.certificate_1Approval_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo){
+
+	var firshTodat=this.gfn_todayFirst(); //PC의 첫날
+	this.Div00.form.Calendar00.set_value(firshTodat);
+	var today=this.gfn_today();  //pc 오늘날짜
+	this.Div00.form.Calendar00_00.set_value(today);
+};
+
+//조회
+this.Div00_inquiryBtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.transaction("daySearchID",
+					"svcDocumentmgmt::documentsList-inquiry",
+					"",
+					"ds_documents_list=ds_documents",
+					"empCode="+nexa.g_empCode.toString()+" startDate='"+this.Div00.form.Calendar00.value+"'"+
+					 " endDate='"+this.Div00.form.Calendar00_00.value+"'",
+					"");
+};
+
+//행선택
+this.Div00_Grid00_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	this.ds_documents_list.addColumn("STATUS","STRING");
+	
+	for(var i=0; i<this.ds_documents_list.rowcount; i++){
+		this.ds_documents_list.setColumn(i,"STATUS",undefined);
+	}
+	
+	this.ds_documents_list.setColumn(this.ds_documents_list.rowposition,"STATUS","Choice");
+};
+
+
+
+//승인버튼
+this.inquiryBtn00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_documents_list.setColumn(this.ds_documents_list.rowposition,"APPLOVAL_STATUS","승인");
+};
+
+
+//반려버튼
+this.inquiryBtn01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_documents_list.setColumn(this.ds_documents_list.rowposition,"APPLOVAL_STATUS","반려");
+};
+
+//승인취소버튼
+this.inquiryBtn02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_documents_list.setColumn(this.ds_documents_list.rowposition,"APPLOVAL_STATUS","승인취소");
+};
+
+//확정버튼
+
+this.inquiryBtn03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.transaction("updateID",
+							 "svcDocumentmgmt::document-approval",
+							 "ds_documents=ds_documents_list:u", 
+							 "", 
+							 "", 
+							 "fn_callback");
+};
+]]></Script>
+  </Form>
+</FDL>

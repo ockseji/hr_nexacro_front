@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <GenInfo version="1.1">
+    <Rule>
+      <ENV rule_version="1.05"/>
+      <ADL rule_version="1.14"/>
+      <FDL rule_version="1.04"/>
+      <XCSS rule_version="1.04"/>
+      <Script rule_version="1.02"/>
+      <GeneratorInfo rule_version="1.3"/>
+    </Rule>
+    <Info project="C:\Users\A\Desktop\SEZZI\프로젝트\nexacro\insa_nexa_front\insa_nexa_front\" generated="C:\Users\A\Documents\TOBESOFT\Nexacro N\outputs\insa\">
+      <File url="environment.xml" checksum="20240111210954" errormsg=""/>
+      <File url="typedefinition.xml" checksum="20240111210958" errormsg=""/>
+      <File url="appvariables.xml" checksum="20240130102828" errormsg=""/>
+      <File url="_resource_\_theme_\default\theme.xcss" checksum="20240111211056" errormsg=""/>
+      <File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\24.0.0\nexacrolib\framework\Framework.json" checksum="20231215111948" errormsg=""/>
+      <File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\24.0.0\nexacrolib\resources\Resource.json" checksum="20231215111948" errormsg=""/>
+      <File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\24.0.0\nexacrolib\component\CompBase.json" checksum="20231215111944" errormsg=""/>
+      <File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\24.0.0\nexacrolib\component\ComComp.json" checksum="20231215111944" errormsg=""/>
+      <File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\24.0.0\nexacrolib\component\Grid.json" checksum="20231215111946" errormsg=""/>
+      <File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\24.0.0\nexacrolib\component\ListView.json" checksum="20231215111948" errormsg=""/>
+      <File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\24.0.0\nexacrolib\component\DeviceAPI.json" checksum="20231215111946" errormsg=""/>
+      <File url="_extlib_\Chart.json" checksum="20240111210958" errormsg=""/>
+      <File url="Application_Desktop.xadl" checksum="20240111210952" errormsg=""/>
+      <File url="Empmgmt\empReg.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Attd\excusedAttnd.xfdl" checksum="20240111210952" errormsg=""/>
+      <File url="Attd\attndApproval.xfdl" checksum="20240202195820" errormsg=""/>
+      <File url="Attd\annualLeaveMgt.xfdl" checksum="20240111210952" errormsg=""/>
+      <File url="Comm\codeList_copy0.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Comm\empAuth.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="DailyEmp\dailyEmpPayCalc.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Attd\breakApplication.xfdl" checksum="20240111210952" errormsg=""/>
+      <File url="Attd\travel_new.xfdl" checksum="20240111210952" errormsg=""/>
+      <File url="Attd\overwork.xfdl" checksum="20240111210952" errormsg=""/>
+      <File url="Comm\holidayList.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Comm\deptList.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Attd\overworkMgt.xfdl" checksum="20240111210952" errormsg=""/>
+      <File url="Salary\fullTimeSal.xfdl" checksum="20240111210956" errormsg=""/>
+      <File url="Base\Modal.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Empmgmt\documents.xfdl" checksum="20240129160818" errormsg=""/>
+      <File url="Attd\dailyAttnd_1.xfdl" checksum="20240118112946" errormsg=""/>
+      <File url="Attd\dailyAttnd.xfdl" checksum="20240111210952" errormsg=""/>
+      <File url="Empmgmt\empAppo.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Empmgmt\empDetail.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Empmgmt\documentsApproval.xfdl" checksum="20240130115607" errormsg=""/>
+      <File url="Empmgmt\certificate_1.xfdl" checksum="20240131214237" errormsg=""/>
+      <File url="Empmgmt\certificate.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Base\loginForm.xfdl" checksum="20240119210753" errormsg=""/>
+      <File url="Empmgmt\empEval.xfdl" checksum="20240111210954" errormsg=""/>
+      <File url="Base\ProofModal.xfdl" checksum="20240125114533" errormsg=""/>
+      <File url="NewEmp\documentmgmt\resumemgmt.xfdl" checksum="20240111210956" errormsg=""/>
+      <File url="Empmgmt\certificate_1Approval.xfdl" checksum="20240201153444" errormsg=""/>
+    </Info>
+  </GenInfo>
+</root>
